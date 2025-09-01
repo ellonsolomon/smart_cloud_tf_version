@@ -75,8 +75,8 @@ cd photo-gallery-terraform
 ### 2. Configure Variables
 
 ```bash
-# Copy the example variables file
-cp terraform.tfvars terraform.tfvars
+# Copy an example variables file if you have one
+cp terraform.tfvars.example terraform.tfvars
 
 # Edit terraform.tfvars with your desired configuration
 nano terraform.tfvars
