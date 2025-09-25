@@ -1,6 +1,8 @@
 # S3 bucket for photo storage
 resource "aws_s3_bucket" "photo_gallery" {
-  bucket = local.bucket_name
+  bucket        = local.bucket_name
+  force_destroy = true # Allow Terraform to delete bucket even with objects
+
 
   tags = merge(local.common_tags, {
     Name = local.bucket_name

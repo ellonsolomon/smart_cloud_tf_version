@@ -1,21 +1,3 @@
-terraform {
-  required_version = ">= 1.0"
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-    random = {
-      source  = "hashicorp/random"
-      version = "~> 3.1"
-    }
-    archive = {
-      source  = "hashicorp/archive"
-      version = "~> 2.2"
-    }
-  }
-}
-
 provider "aws" {
   region = var.region
 
@@ -36,7 +18,7 @@ resource "random_string" "suffix" {
 
 # Generate timestamp for unique naming
 locals {
-  timestamp   = formatdate("YYYYMMDDHHMMSS", timestamp())
+  timestamp   = formatdate("YYYYMMDDHHmmss", timestamp())
   account_id  = data.aws_caller_identity.current.account_id
   bucket_name = "${var.project_name}-${local.timestamp}-${random_string.suffix.result}"
 
